@@ -66,12 +66,13 @@ INSET_DEPTHS=[1.0, 0.8, 0.6, 0.4, 0.2];
 
 // Text
 // FONT = "Arial Rounded MT Bold:style=Regular";
-FONT = "Liberation Sans:style=Bold";
+// FONT = "Liberation Sans:style=Bold";
+FONT = "Fira Code:style=Medium";
 TEXT_X=4.0;
 TEXT_Y=39.0;
 TEXT_DEPTH=1.5;
 //TEXT_TEMP=str(TEMP_HOTEND, "\u00B0\u2013", TEMP_BED, "\u00B0");
-TEXT_TEMP=str("N", TEMP_HOTEND, "\u00B0 B", TEMP_BED, "\u00B0");
+TEXT_TEMP=str("H", TEMP_HOTEND, "\u00B0 B", TEMP_BED, "\u00B0");
 TEXT_FL_TEMP=str("   ", TEMP_HOTEND_FIRST_LAYER, "\u00B0\u2013", TEMP_BED_FIRST_LAYER, "\u00B0");
 
 $fn = 50;
@@ -89,13 +90,13 @@ module CardBody() {
   hull() {
     CardCorner(CARD_CORNER_RADIUS, CARD_CORNER_RADIUS, CARD_EDGE_RADIUS);
     CardCorner(CARD_CORNER_RADIUS, CARD_CORNER_RADIUS, CARD_THICKNESS - CARD_EDGE_RADIUS);
-      
+
     CardCorner(CARD_LENGTH - CARD_CORNER_RADIUS, CARD_CORNER_RADIUS, CARD_EDGE_RADIUS);
     CardCorner(CARD_LENGTH - CARD_CORNER_RADIUS, CARD_CORNER_RADIUS, CARD_THICKNESS - CARD_EDGE_RADIUS);
-      
+
     CardCorner(CARD_CORNER_RADIUS, CARD_HEIGHT - CARD_CORNER_RADIUS, CARD_EDGE_RADIUS);
     CardCorner(CARD_CORNER_RADIUS, CARD_HEIGHT - CARD_CORNER_RADIUS, CARD_THICKNESS - CARD_EDGE_RADIUS);
-      
+
     CardCorner(CARD_LENGTH - CARD_CORNER_RADIUS, CARD_HEIGHT - CARD_CORNER_RADIUS, CARD_EDGE_RADIUS);
     CardCorner(CARD_LENGTH - CARD_CORNER_RADIUS, CARD_HEIGHT - CARD_CORNER_RADIUS, CARD_THICKNESS - CARD_EDGE_RADIUS);
   }
@@ -186,14 +187,14 @@ module Card() {
                 }
             }
         }
-        
+
         Insets();
         if (INVERT_CARD!=1) {
           CardInfo();
         }
       }
   }
-  
+
   if (INFILL_SAMPLE==0) {
       if (INVERT_CARD==1) {
         CardInfo();
